@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, memo } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AnimatePresence, useAnimationControls } from 'framer-motion'
 import { Box } from '@mui/material'
 import MotionBox from '@components/common/MotionBox'
@@ -20,8 +20,6 @@ const Quiz = ({ onDoneQuiz, handleGetResponseAnswers }: Props) => {
   const [selectedQuestion, setSelectedQuestion] = useState<number>(0)
   const [responseAnswers, setResponseAnswers] = useState<number[]>(Array(12).fill(0).map(_ => -1))
   const [isDoneAnimation, setIsDoneAnimation] = useState<boolean>(false)
-
-  const questionRef = useRef<HTMLDivElement>(null)
 
   const whiteLayer = useAnimationControls()
   const questionLayer = useAnimationControls()
@@ -109,7 +107,6 @@ const Quiz = ({ onDoneQuiz, handleGetResponseAnswers }: Props) => {
 
   return (
     <Box
-      component="div"
       sx={{
         background: color?.background, display: "flex", gap: 3, flexDirection: "column", color: "white", position: "relative"
       }}
@@ -147,10 +144,8 @@ const Quiz = ({ onDoneQuiz, handleGetResponseAnswers }: Props) => {
                   sx={{ width: "100%", height: "100%", overflowX: "hidden", position: "relative", borderBottomLeftRadius: "24px", borderBottomRightRadius: "24px" }}
                 >
                   <MotionBox
-                    component="div"
                     initial={{ x: 0 }}
                     animate={questionLayer}
-                    ref={questionRef}
                     sx={{ height: "100%", width: "100%", position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: color.background }}
                   >
                     <AnswersCard
@@ -170,9 +165,9 @@ const Quiz = ({ onDoneQuiz, handleGetResponseAnswers }: Props) => {
             ))
           }
         </AnimatePresence >
-        P</Box >
+      </Box >
     </Box >
   )
 }
 
-export default memo(Quiz)
+export default Quiz
