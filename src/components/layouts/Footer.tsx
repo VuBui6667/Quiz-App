@@ -6,7 +6,8 @@ const Footer = () => {
   return (
     <Box
       sx={{ backgroundColor: "#004C39", color: "#fff" }}
-      padding={{ xs: "48px", sm: "80px", md: "120px" }}
+      paddingX={{ xs: "48px", sm: "80px", md: "120px" }}
+      paddingY={{ xs: "48px", sm: "80px" }}
     >
       <Box component="h1" paddingBottom={3}>THÔNG TIN LIÊN HỆ</Box>
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>

@@ -119,8 +119,43 @@ const Quiz = ({ onDoneQuiz, handleGetResponseAnswers }: Props) => {
       <Box
         position="relative"
         sx={{ width: "100%", height: "100%" }}
-        marginTop={{ xs: "250px", sm: "400px", md: "320px" }}
+        marginTop={{ xs: "250px", sm: "320px" }}
       >
+        <MotionBox
+          animate={{ y: [0, 100, 0] }}
+          transition={{
+            duration: 5,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+          sx={{ position: "absolute", top: -160, left: -200 }}
+        >
+          <Box
+            component="img"
+            src='/images/cocktail.png'
+            alt="book"
+            width={{ xs: "30%" }}
+            height={{ xs: "30%" }}
+            sx={{ transform: "rotate(45deg)" }}
+          />
+        </MotionBox>
+        <MotionBox
+          animate={{ y: [0, 100, 0] }}
+          transition={{
+            duration: 5,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+          sx={{ position: "absolute", top: 0, right: -200, zIndex: 99 }}
+        >
+          <Box
+            component="img"
+            src='/images/ruler.png'
+            alt="book"
+            width={{ xs: "80%" }}
+            height={{ xs: "80%" }}
+          />
+        </MotionBox>
         <AnimatePresence>
           {
             QUIZ.map((quiz, index) => (
@@ -129,7 +164,7 @@ const Quiz = ({ onDoneQuiz, handleGetResponseAnswers }: Props) => {
                 sx={{ position: "absolute", width: "100%", top: -200, zIndex: selectedQuestion === index ? 10 : -1 }} height={{ xs: "480px" }}
               >
                 <Box
-                  sx={{ width: "100%", height: "80px", overflowX: "hidden", borderTopLeftRadius: "24px", borderTopRightRadius: "24px" }}
+                  sx={{ width: "100%", height: "80px", overflowX: "hidden", borderTopLeftRadius: "24px", borderTopRightRadius: "24px", position: "relative" }}
                 >
                   <MotionBox
                     animate={termLayer}

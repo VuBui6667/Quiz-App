@@ -15,8 +15,8 @@ const Review = ({ onStartQuiz }: Props) => {
       animate={{ scale: [1, 1.1, 1] }}
       transition={{ duration: 6, repeat: Infinity }}
       sx={{ backgroundColor: "#55CD5C", display: "flex", gap: 3, flexDirection: "column", justifyContent: "center", alignItems: "center", minHeight: "100vh", color: "white", position: "relative", zIndex: 999 }} paddingX={{ xs: "40px", sm: "100px", md: "200px", lg: "360px", xl: "420px" }}>
-      <CircleBlur color="#8ED246" size={400} top={-100} right={0} />
-      <CircleBlur color="#F6FB68" size={400} bottom={-100} left={500} blur={140} />
+      <CircleBlur color="#8ED246" size={400} top={-100} right={0} zIndex={-1} />
+      <CircleBlur color="#F6FB68" size={400} bottom={-100} left={500} blur={140} zIndex={-1} />
       <MotionBox
         animate={{ y: [0, 100, 0] }}
         transition={{
